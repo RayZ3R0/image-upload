@@ -389,8 +389,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.13/dist/cropper.min.js"></script>
     <script>
-        // Previous JavaScript remains same until these updates
-
         const themeToggle = document.querySelector('.theme-toggle');
         const lightIcon = document.querySelector('.light-icon');
         const darkIcon = document.querySelector('.dark-icon');
@@ -497,10 +495,11 @@
                 
                 cropper = new Cropper(imagePreview, {
                     aspectRatio: NaN,
-                    viewMode: 1,
+                    viewMode: 2,
                     guides: true,
                     center: true,
                     highlight: false,
+                    autoCrop: true,
                     autoCropArea: 0.9,
                     responsive: false,
                     restore: false,
@@ -510,7 +509,12 @@
                     guideClass: 'custom-guide',
                     cropBoxResizable: true,
                     cropBoxMovable: true,
-                    dragMode: 'crop',
+                    dragMode: 'none',
+                    movable: true,
+                    zoomable: true,
+                    zoomOnTouch: false,
+                    zoomOnWheel: false,
+                    touchDragZoom: true,
                     minCropBoxWidth: 100,
                     minCropBoxHeight: 100,
                     maxCropBoxHeight: 400,
