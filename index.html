@@ -43,17 +43,17 @@
             --btn-gradient: linear-gradient(135deg, #cba6f7 0%, #89b4fa 100%);
             
             /* Dark Theme Alert Colors */
-            --alert-success-bg: rgba(134, 239, 172, 0.05);
-            --alert-success-border: rgba(134, 239, 172, 0.2);
-            --alert-success-color: #86efac;
+            --alert-success-bg: rgba(134, 239, 172, 0.1);
+            --alert-success-border: rgba(134, 239, 172, 0.15);
+            --alert-success-color: #34d399;
             
-            --alert-error-bg: rgba(248, 113, 113, 0.05);
-            --alert-error-border: rgba(248, 113, 113, 0.2);
-            --alert-error-color: #f87171;
+            --alert-error-bg: rgba(248, 113, 113, 0.1);
+            --alert-error-border: rgba(248, 113, 113, 0.15);
+            --alert-error-color: #fb7185;
             
-            --alert-info-bg: rgba(96, 165, 250, 0.05);
-            --alert-info-border: rgba(96, 165, 250, 0.2);
-            --alert-info-color: #60a5fa;
+            --alert-info-bg: rgba(96, 165, 250, 0.1);
+            --alert-info-border: rgba(96, 165, 250, 0.15);
+            --alert-info-color: #38bdf8;
         }
 
         * {
@@ -272,6 +272,8 @@
             animation: statusSlideIn 0.3s var(--transition-timing);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                        0 2px 4px -1px rgba(0, 0, 0, 0.05);
         }
 
         .status::before {
@@ -508,7 +510,7 @@
                     guideClass: 'custom-guide',
                     cropBoxResizable: true,
                     cropBoxMovable: true,
-                    dragMode: 'move',
+                    dragMode: 'crop',
                     minCropBoxWidth: 100,
                     minCropBoxHeight: 100,
                     maxCropBoxHeight: 400,
