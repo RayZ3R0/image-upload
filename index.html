@@ -190,15 +190,15 @@
             border-radius: 12px;
         }
 
-        /* Enhanced Cropper Styles */
+        /* Enhanced Mobile-Friendly Cropper Styles */
         .cropper-view-box,
         .cropper-face {
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .cropper-line {
             background-color: var(--primary-color);
-            opacity: 0.75;
+            opacity: 0.85;
         }
 
         .cropper-line.line-e,
@@ -211,29 +211,57 @@
             height: 3px;
         }
 
+        /* Enhanced touch targets for mobile */
         .cropper-point {
-            width: 16px;
-            height: 16px;
-            background-color: var(--primary-color);
-            opacity: 0.75;
+            width: 28px;
+            height: 28px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 2px solid var(--primary-color);
+            opacity: 0.9;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            transform-origin: center;
+            touch-action: none;
+        }
+
+        .cropper-point:active {
+            transform: scale(1.2);
+            opacity: 1;
         }
 
         .cropper-point.point-ne,
         .cropper-point.point-nw,
         .cropper-point.point-sw,
         .cropper-point.point-se {
-            width: 20px;
-            height: 20px;
+            width: 32px;
+            height: 32px;
         }
 
+        /* Improved visibility of crop box */
         .cropper-view-box {
-            outline: 2px solid var(--primary-color);
+            outline: 3px solid var(--primary-color);
             outline-color: var(--primary-color);
+            box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
         }
 
         .cropper-modal {
             background-color: var(--surface);
-            opacity: 0.8;
+            opacity: 0.75;
+        }
+
+        /* Grid guides during cropping */
+        .cropper-dashed {
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .cropper-center {
+            opacity: 0.9;
+        }
+
+        .cropper-center::before,
+        .cropper-center::after {
+            background-color: rgba(255, 255, 255, 0.9);
         }
 
         .action-buttons {
@@ -515,9 +543,17 @@
                     zoomOnTouch: false,
                     zoomOnWheel: false,
                     touchDragZoom: true,
-                    minCropBoxWidth: 100,
-                    minCropBoxHeight: 100,
-                    maxCropBoxHeight: 400,
+                    minCropBoxWidth: 120,
+                    minCropBoxHeight: 120,
+                    maxCropBoxHeight: 800,
+                    wheelZoomRatio: 0.1,
+                    cropBoxMovable: true,
+                    cropBoxResizable: true,
+                    toggleDragModeOnDblclick: false,
+                    background: true,
+                    movable: true,
+                    rotatable: false,
+                    scalable: false,
                     toggleDragModeOnDblclick: false,
                     ready() {
                         const containerData = cropper.getContainerData();
